@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Accounts {
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  username          String   @unique
+  picture           String   @default("/images/avatar/user.png")
+  firstname         String   @default("")
+  lastname          String   @default("")
+  email             String   @unique
+  mobile            String
+  street            String?
+  city              String?
+  lga               String?
+  state             String?
+  zip               String?
+  country           String   @default("Nigeria")
+  enable_otp        Boolean  @default(true)
+  otp               String?
+  password          String
+  enabled           Boolean  @default(false)
+  role              Role     @default(USER)
+  smsNotification   Boolean  @default(false)
+  emailNotification Boolean  @default(false)
+  lastLogin         DateTime @default(now())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Settings {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  appname     String   @unique @default("NOHE")
+  domain      String   @default("http://localhost:3000")
+  title       String   @default("National Orthopedic Hospital, Enugu.")
+  description String   @default("National Orthopedic Hospital, Enugu.")
+  keywords    String   @default("National Orthopedic Hospital, Enugu.")
+  smsBalance  Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Pages {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  pageType  String    @default("page")
+  slug      String    @unique
+  parent    String?   @default("home")
+  content   String
+  isDraft   Boolean   @default(false)
+  delete    Boolean   @default(false)
+  deleteAt  DateTime?
+  disable   Boolean   @default(false)
+  disableAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
+}
