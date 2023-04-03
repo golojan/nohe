@@ -37,31 +37,46 @@ model Accounts {
 }
 
 model Settings {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  appname     String   @unique @default("NOHE")
-  domain      String   @default("http://localhost:3000")
-  title       String   @default("National Orthopedic Hospital, Enugu.")
-  description String   @default("National Orthopedic Hospital, Enugu.")
-  keywords    String   @default("National Orthopedic Hospital, Enugu.")
-  smsBalance  Int      @default(0)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id                 String   @id @default(auto()) @map("_id") @db.ObjectId
+  appname            String   @unique @default("NOHE")
+  domain             String   @default("http://localhost:3000")
+  title              String   @default("NOHE Admin")
+  siteDomain         String   @default("http://localhost:3001")
+  siteTitle          String   @default("National Orthopedic Hospital, Enugu.")
+  description        String   @default("National Orthopedic Hospital, Enugu.")
+  keywords           String   @default("National Orthopedic Hospital, Enugu.")
+  siteAddress        String   @default("Enugu State, Nigeria.")
+  sitePhone          String   @default("+234 803 000 0000")
+  siteEmail          String   @default("noheadin@nohenugu.org.ng")
+  siteFacebook       String?  @default("#")
+  siteTwitter        String?  @default("#")
+  siteInstagram      String?  @default("#")
+  siteYoutube        String?  @default("#")
+  siteLinkedin       String?  @default("#")
+  sitePinterest      String?  @default("#")
+  siteEmergencyPhone String?  @default("+234 803 000 0000")
+  siteCopyRight      String   @default("Copyright 2023, National Orthopedic Hospital")
+  smsBalance         Int      @default(0)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 }
 
 model Pages {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  title     String
-  pageType  String    @default("page")
-  slug      String    @unique
-  parent    String?   @default("home")
-  content   String
-  isDraft   Boolean   @default(false)
-  delete    Boolean   @default(false)
-  deleteAt  DateTime?
-  disable   Boolean   @default(false)
-  disableAt DateTime?
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  title      String
+  pageType   String    @default("page")
+  slug       String    @unique
+  parent     String?   @default("home")
+  content    String
+  isDraft    Boolean   @default(false)
+  addFooter1 Boolean   @default(false)
+  addFooter2 Boolean   @default(false)
+  delete     Boolean   @default(false)
+  deleteAt   DateTime?
+  disable    Boolean   @default(false)
+  disableAt  DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
 }
 
 enum Role {

@@ -26,6 +26,7 @@ server.use(cookieParser());
 
 // set public folder
 server.use(express.static(path.join(__dirname, "public")));
+server.use(express.static(path.join(__dirname, "public", "assets")));
 
 // ejs // set view engine
 server.set("view engine", "ejs");
@@ -36,7 +37,11 @@ server.use(middleware);
 
 // set API routes
 server.get("/", async (req: Request, res: Response) => {
-  res.render("working");
+  if (process.env.NODE_ENV === "production") {
+    res.render("working");
+  } else {
+    res.render("index");
+  }
 });
 
 //Listen to port
