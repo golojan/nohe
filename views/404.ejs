@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+<div class="mediz-not-found-wrap" id="mediz-full-no-header-wrap">
+  <div class="mediz-not-found-background"></div>
+  <div class="mediz-not-found-container mediz-container">
+    <div class="mediz-header-transparent-substitute"></div>
+
+    <div class="mediz-not-found-content mediz-item-pdlr">
+      <h1 class="mediz-not-found-head">404</h1>
+      <h3 class="mediz-not-found-title mediz-content-font">Page Not Found</h3>
+      <div class="mediz-not-found-caption">
+        Sorry, we couldn&#039;t find the page you&#039;re looking for.
+      </div>
+      <form role="search" method="get" class="search-form" action="/">
+        <input
+          type="text"
+          class="search-field mediz-title-font"
+          placeholder="Type Keywords..."
+          value=""
+          disabled
+          aria-disabled="true"
+          name="s"
+        />
+        <div class="mediz-top-search-submit"><i class="fa fa-search"></i></div>
+        <input
+          type="submit"
+          class="search-submit"
+          disabled
+          aria-disabled="true"
+          value="Search"
+        />
+      </form>
+      <div class="mediz-not-found-back-to-home">
+        <a href="/">Or Back To Homepage</a>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>

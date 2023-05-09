@@ -1,0 +1,140 @@
+<div
+  class="mediz-navigation-bar-wrap mediz-style-solid mediz-sticky-navigation mediz-sticky-navigation-height mediz-style-left mediz-style-fixed"
+>
+  <div class="mediz-navigation-background"></div>
+  <div class="mediz-navigation-container clearfix mediz-container">
+    <div class="mediz-navigation mediz-item-pdlr clearfix">
+      <div class="mediz-main-menu" id="mediz-main-menu">
+        <ul id="menu-main-navigation-1" class="sf-menu">
+          <li
+            class="menu-item menu-item-home current-menu-item page_item page-item-7684 current_page_item mediz-normal-menu"
+          >
+            <a href="/">Home</a>
+          </li>
+          <% allPages.forEach(async page => { %>
+          <li class="menu-item menu-item-has-children mediz-normal-menu">
+            <a href="/pages/<%= page.slug %>" class="sf-with-ul-pre">
+              <%= page.title %>
+            </a>
+            <!-- <ul class="sub-menu">
+              <li class="menu-item menu-item-has-children" data-size="60">
+                <a class="sf-with-ul-pre">Portfolio Grid</a>
+                <ul class="sub-menu">
+                  <li class="menu-item">
+                    <a href="portfolio-2-columns.html">Portfolio 2 Columns</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="portfolio-3-columns.html">Portfolio 3 Columns</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="portfolio-4-columns.html">Portfolio 4 Columns</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="portfolio-2-columns-with-frame.html"
+                      >Portfolio 2 Columns With Frame</a
+                    >
+                  </li>
+                  <li class="menu-item">
+                    <a href="portfolio-3-columns-with-frame.html"
+                      >Portfolio 3 Columns With Frame</a
+                    >
+                  </li>
+                  <li class="menu-item">
+                    <a href="portfolio-4-columns-with-frame.html"
+                      >Portfolio 4 Columns With Frame</a
+                    >
+                  </li>
+                  <li class="menu-item">
+                    <a href="portfolio-2-columns-no-space.html"
+                      >Portfolio 2 Columns No Space</a
+                    >
+                  </li>
+                  <li class="menu-item">
+                    <a href="portfolio-3-columns-no-space.html"
+                      >Portfolio 3 Columns No Space</a
+                    >
+                  </li>
+                  <li class="menu-item">
+                    <a href="portfolio-4-columns-no-space.html"
+                      >Portfolio 4 Columns No Space</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item menu-item-has-children" data-size="60">
+                <a class="sf-with-ul-pre">Portfolio Side Thumbnail</a>
+                <ul class="sub-menu">
+                  <li class="menu-item">
+                    <a href="portfolio-left-right-large-thumbnail.html"
+                      >Portfolio Left &#038; Right Large Thumbnail</a
+                    >
+                  </li>
+                  <li class="menu-item">
+                    <a href="portfolio-left-large-thumbnail.html"
+                      >Portfolio Left Large Thumbnail</a
+                    >
+                  </li>
+                  <li class="menu-item">
+                    <a href="portfolio-right-large-thumbnail.html"
+                      >Portfolio Right Large Thumbnail</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul> -->
+          </li>
+          <% }) %>
+        </ul>
+
+        <div
+          class="mediz-navigation-slide-bar mediz-navigation-slide-bar-style-2"
+          data-size-offset="0"
+          id="mediz-navigation-slide-bar"
+        ></div>
+      </div>
+      <div class="mediz-main-menu-right-wrap clearfix">
+        <div class="mediz-main-menu-search" id="mediz-top-search">
+          <i class="icon-magnifier"></i>
+        </div>
+        <div class="mediz-top-search-wrap">
+          <div class="mediz-top-search-close"></div>
+
+          <div class="mediz-top-search-row">
+            <div class="mediz-top-search-cell">
+              <form
+                role="search"
+                method="get"
+                class="search-form"
+                action="index.html"
+              >
+                <input
+                  type="text"
+                  class="search-field mediz-title-font"
+                  placeholder="Search..."
+                  value=""
+                  name="s"
+                />
+                <div class="mediz-top-search-submit">
+                  <i class="fa fa-search"></i>
+                </div>
+                <input type="submit" class="search-submit" value="Search" />
+                <div class="mediz-top-search-close">
+                  <i class="icon_close"></i>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <a
+          class="mediz-main-menu-right-button mediz-button-1 mediz-style-round"
+          href="#"
+          target="_self"
+          >Contact Now</a
+        >
+      </div>
+    </div>
+
+    <!-- mediz-navigation -->
+  </div>
+  <!-- mediz-header-container -->
+</div>

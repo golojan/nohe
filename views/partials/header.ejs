@@ -2,9 +2,28 @@
 <html lang="en-US" class="no-js">
   <head>
     <meta charset="UTF-8" />
+    <base href="<%= locals.domain %>" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= title %></title>
 
-    <title>..</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="De-Golojan Technologies LLC" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="google" content="nositelinkssearchbox" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= locals.domain %>" />
+    <meta
+      property="og:image"
+      content="/assets/images/resources/about-2-1.png"
+    />
+    <meta property="og:site_name" content="" />
+
     <link
       rel="apple-touch-icon"
       sizes="57x57"
@@ -84,67 +103,67 @@
     />
     <link
       rel="stylesheet"
-      href="plugins/goodlayers-core/plugins/fontawesome/font-awesome.css"
+      href="/plugins/goodlayers-core/plugins/fontawesome/font-awesome.css"
       type="text/css"
       media="all"
     />
     <link
       rel="stylesheet"
-      href="plugins/goodlayers-core/plugins/fa5/fa5.css"
+      href="/plugins/goodlayers-core/plugins/fa5/fa5.css"
       type="text/css"
       media="all"
     />
     <link
       rel="stylesheet"
-      href="plugins/goodlayers-core/plugins/elegant/elegant-font.css"
+      href="/plugins/goodlayers-core/plugins/elegant/elegant-font.css"
       type="text/css"
       media="all"
     />
     <link
       rel="stylesheet"
-      href="plugins/goodlayers-core/plugins/ionicons/ionicons.css"
+      href="/plugins/goodlayers-core/plugins/ionicons/ionicons.css"
       type="text/css"
       media="all"
     />
     <link
       rel="stylesheet"
-      href="plugins/goodlayers-core/plugins/simpleline/simpleline.css"
+      href="/plugins/goodlayers-core/plugins/simpleline/simpleline.css"
       type="text/css"
       media="all"
     />
     <link
       rel="stylesheet"
-      href="plugins/goodlayers-core/plugins/style.css"
+      href="/plugins/goodlayers-core/plugins/style.css"
       type="text/css"
       media="all"
     />
     <link
       rel="stylesheet"
-      href="plugins/goodlayers-core/include/css/page-builder.css"
+      href="/plugins/goodlayers-core/include/css/page-builder.css"
       type="text/css"
       media="all"
     />
     <link
       rel="stylesheet"
-      href="plugins/revslider/public/assets/css/rs6.css"
+      href="/plugins/revslider/public/assets/css/rs6.css"
       type="text/css"
       media="all"
     />
     <link
       rel="stylesheet"
-      href="plugins/google-map-plugin/assets/css/frontend.css"
+      href="/plugins/google-map-plugin/assets/css/frontend.css"
       type="text/css"
       media="all"
     />
     <link
       rel="stylesheet"
-      href="css/style-core.css"
+      href="/css/style-core.css"
       type="text/css"
       media="all"
     />
     <link
       rel="stylesheet"
-      href="css/mediz-style-custom.css"
+      href="/css/mediz-style-custom.css"
       type="text/css"
       media="all"
     />
@@ -170,6 +189,6 @@
     <%- include('MobileHeaderMenu') %>
     <div class="mediz-body-outer-wrapper">
       <div class="mediz-body-wrapper clearfix mediz-with-frame">
-        <%- include('TopMenuBar') %>
-        <%- include('HeaderBar') %>
-        <%- include('HeaderMenu') %>
+        <%- include('TopMenuBar') %> <%- include('HeaderBar') %> <%-
+        include('HeaderMenu') %>
+     

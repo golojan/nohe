@@ -1,5 +1,4 @@
 import { NextFunction, Response, Request } from "express";
-const jwtSecret: string = process.env.JWT_SECRET || "NOHE_ENUGU";
 
 // Convert MongoDb date to Full Date
 export function convertMongoDateToFullDate(date: Date) {

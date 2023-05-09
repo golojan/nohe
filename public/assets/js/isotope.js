@@ -7,7 +7,7 @@ $(document).ready(function($) {
 	"use strict";
 	
  	/*-------------------------------------------------*/
-	/* =  Isotope
+	/* =  Isotope =
 	/*-------------------------------------------------*/
 	var winDow = $(window);
 			// Needed variables

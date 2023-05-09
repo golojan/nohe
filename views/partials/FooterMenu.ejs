@@ -17,9 +17,7 @@
                 style="margin-top: -27px"
               ></span>
               <br />
-              Box 3233 <br />
-              1810 Kings Way <br />
-              King Street, 5th Avenue, New York
+              <%= locals.settings.siteAddress %>
               <br />
               <span
                 class="gdlr-core-space-shortcode"
@@ -30,7 +28,9 @@
                 class="icon-phone"
                 style="font-size: 19px; color: #17449e; margin-right: 10px"
               ></i
-              ><span style="color: #17449e">+1-2345-3455-33</span>
+              ><span style="color: #17449e"
+                ><%= locals.settings.sitePhone %></span
+              >
               <br />
               <span
                 class="gdlr-core-space-shortcode"
@@ -42,7 +42,7 @@
                 style="font-size: 19px; color: #17449e; margin-right: 10px"
               ></i
               ><a href="#" style="color: #17449e"
-                ><span class="__cf_email__">test@gmail.com</span></a
+                ><span class=""><%= locals.settings.siteEmail %></span></a
               >
             </p>
           </div>
@@ -50,25 +50,17 @@
       </div>
       <div class="mediz-footer-column mediz-item-pdlr mediz-column-15">
         <div id="nav_menu-3" class="widget widget_nav_menu mediz-widget">
-          <h3 class="mediz-widget-title">About Us</h3>
+          <h3 class="mediz-widget-title">More About NOHE...</h3>
           <span class="clear"></span>
           <div class="menu-about-us-container">
             <ul id="menu-about-us" class="menu">
+              <% locals.footer1Pages.forEach(footer1Page => { %>
               <li class="menu-item">
-                <a href="#">Our Mission &#038; Values</a>
+                <a href="/pages/<%= footer1Page.slug %>"
+                  ><%= footer1Page.title %></a
+                >
               </li>
-              <li class="menu-item"><a href="#">Leadership</a></li>
-              <li class="menu-item"><a href="#">Transformation</a></li>
-              <li class="menu-item"><a href="#">Awards</a></li>
-              <li class="menu-item">
-                <a href="#">Diversity is Our Specialty</a>
-              </li>
-              <li class="menu-item">
-                <a href="#">Publications &#038; Reports</a>
-              </li>
-              <li class="menu-item">
-                <a href="#">Policies &#038; Procedures</a>
-              </li>
+              <% }) %>
             </ul>
           </div>
         </div>
@@ -79,12 +71,13 @@
           <span class="clear"></span>
           <div class="menu-our-services-container">
             <ul id="menu-our-services" class="menu">
-              <li class="menu-item"><a href="#">Lung Diseases</a></li>
-              <li class="menu-item"><a href="#">Orthopaedic</a></li>
-              <li class="menu-item"><a href="#">Pharmacy</a></li>
-              <li class="menu-item"><a href="#">Sport Injury</a></li>
-              <li class="menu-item"><a href="#">Heart</a></li>
-              <li class="menu-item"><a href="#">Dental Service</a></li>
+              <% locals.footer2Pages.forEach(footer2Page => { %>
+              <li class="menu-item">
+                <a href="/pages/<%= footer2Page.slug %>"
+                  ><%= footer2Page.title %></a
+                >
+              </li>
+              <% }) %>
             </ul>
           </div>
         </div>
@@ -94,23 +87,29 @@
           id="gdlr-core-opening-hour-widget-3"
           class="widget widget_gdlr-core-opening-hour-widget mediz-widget"
         >
-          <h3 class="mediz-widget-title">Hospital Hours</h3>
+          <h3 class="mediz-widget-title">Hospital Service Hours</h3>
           <span class="clear"></span>
           <div class="gdlr-core-opening-hour-widget" style="color: #17449e">
             <div class="gdlr-core-opening-hour-widget-list clearfix">
               <span class="gdlr-core-head"
-                ><i class="icon-clock"></i>Monday - Friday</span
-              ><span class="gdlr-core-tail">08:00 - 20:00</span>
+                ><i class="icon-clock"></i>Weekdays</span
+              ><span class="gdlr-core-tail"
+                ><%= locals.settings.siteMondayToFridays %></span
+              >
             </div>
             <div class="gdlr-core-opening-hour-widget-list clearfix">
               <span class="gdlr-core-head"
                 ><i class="icon-clock"></i>Saturday</span
-              ><span class="gdlr-core-tail">09:00 - 18:00</span>
+              ><span class="gdlr-core-tail"
+                ><%= locals.settings.siteSaturdays %></span
+              >
             </div>
             <div class="gdlr-core-opening-hour-widget-list clearfix">
               <span class="gdlr-core-head"
                 ><i class="icon-clock"></i>Sunday</span
-              ><span class="gdlr-core-tail">09:00 - 18:00</span>
+              ><span class="gdlr-core-tail"
+                ><%= locals.settings.siteSundays %></span
+              >
             </div>
           </div>
         </div>
@@ -157,38 +156,45 @@
           style="padding-bottom: 0px"
         >
           <a
-            href="#url"
+            href="<%= locals.settings.siteFacebook %>"
             target="_blank"
             class="gdlr-core-social-network-icon"
             title="facebook"
             style="font-size: 17px; color: #17449e"
             ><i class="fa fa-facebook"></i></a
           ><a
-            href="#"
+            href="<%= locals.settings.siteLinkedin %>"
             target="_blank"
             class="gdlr-core-social-network-icon"
             title="linkedin"
             style="font-size: 17px; color: #17449e"
             ><i class="fa fa-linkedin"></i></a
           ><a
-            href="#"
+            href="<%= locals.settings.siteInstagram %>"
             target="_blank"
             class="gdlr-core-social-network-icon"
             title="skype"
             style="font-size: 17px; color: #17449e"
-            ><i class="fa fa-skype"></i></a
+            ><i class="fa fa-instagram"></i></a
           ><a
-            href="#url"
+            href="<%= locals.settings.siteTwitter %>"
             target="_blank"
             class="gdlr-core-social-network-icon"
             title="twitter"
             style="font-size: 17px; color: #17449e"
-            ><i class="fa fa-twitter"></i
+            ><i class="fa fa-twitter"></i></a
+          ><a
+            href="<%= locals.settings.sitePinterest %>"
+            target="_blank"
+            class="gdlr-core-social-network-icon"
+            title="twitter"
+            style="font-size: 17px; color: #17449e"
+            ><i class="fa fa-pinterest"></i
           ></a>
         </div>
       </div>
       <div class="mediz-copyright-right mediz-item-pdlr">
-        Copyright 2019 Mediz, All Right Reserved
+        <%= locals.settings.siteCopyRight %>
       </div>
     </div>
   </div>
