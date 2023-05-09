@@ -59,11 +59,17 @@ server.get("/pages/:slug", async (req: Request, res: Response) => {
   })
     .then(async (page) => {
       if (page) {
+        // count children
+        const children = await Pages.find({
+          parent: page._id,
+        }).countDocuments();
+
         await res.render("page", {
           title: page.title,
           description: page.description,
           pageInfo: page,
           pageContent: page.content,
+          children: children ? children : [],
         });
       } else {
         await res.render("404", {

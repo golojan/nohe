@@ -11,77 +11,18 @@
           >
             <a href="/">Home</a>
           </li>
-          <% allPages.forEach(async page => { %>
-          <li class="menu-item menu-item-has-children mediz-normal-menu">
-            <a href="/pages/<%= page.slug %>" class="sf-with-ul-pre">
-              <%= page.title %>
-            </a>
-            <!-- <ul class="sub-menu">
-              <li class="menu-item menu-item-has-children" data-size="60">
-                <a class="sf-with-ul-pre">Portfolio Grid</a>
-                <ul class="sub-menu">
-                  <li class="menu-item">
-                    <a href="portfolio-2-columns.html">Portfolio 2 Columns</a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="portfolio-3-columns.html">Portfolio 3 Columns</a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="portfolio-4-columns.html">Portfolio 4 Columns</a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="portfolio-2-columns-with-frame.html"
-                      >Portfolio 2 Columns With Frame</a
-                    >
-                  </li>
-                  <li class="menu-item">
-                    <a href="portfolio-3-columns-with-frame.html"
-                      >Portfolio 3 Columns With Frame</a
-                    >
-                  </li>
-                  <li class="menu-item">
-                    <a href="portfolio-4-columns-with-frame.html"
-                      >Portfolio 4 Columns With Frame</a
-                    >
-                  </li>
-                  <li class="menu-item">
-                    <a href="portfolio-2-columns-no-space.html"
-                      >Portfolio 2 Columns No Space</a
-                    >
-                  </li>
-                  <li class="menu-item">
-                    <a href="portfolio-3-columns-no-space.html"
-                      >Portfolio 3 Columns No Space</a
-                    >
-                  </li>
-                  <li class="menu-item">
-                    <a href="portfolio-4-columns-no-space.html"
-                      >Portfolio 4 Columns No Space</a
-                    >
-                  </li>
-                </ul>
+          <% allPages.forEach(async (page) => { %>
+          <li class="menu-item menu-item-has-children">
+            <a href="/pages/<%= page.slug %>"> <%= page.title %> </a>
+            <% if (children.length > 0) { %>
+            <ul class="sub-menu">
+              <% children.forEach(async child => { %>
+              <li class="menu-item">
+                <a href="/pages/<%= child.slug %>">Our Doctor</a>
               </li>
-              <li class="menu-item menu-item-has-children" data-size="60">
-                <a class="sf-with-ul-pre">Portfolio Side Thumbnail</a>
-                <ul class="sub-menu">
-                  <li class="menu-item">
-                    <a href="portfolio-left-right-large-thumbnail.html"
-                      >Portfolio Left &#038; Right Large Thumbnail</a
-                    >
-                  </li>
-                  <li class="menu-item">
-                    <a href="portfolio-left-large-thumbnail.html"
-                      >Portfolio Left Large Thumbnail</a
-                    >
-                  </li>
-                  <li class="menu-item">
-                    <a href="portfolio-right-large-thumbnail.html"
-                      >Portfolio Right Large Thumbnail</a
-                    >
-                  </li>
-                </ul>
-              </li>
-            </ul> -->
+              <% }) %>
+            </ul>
+            <% } %>
           </li>
           <% }) %>
         </ul>
@@ -133,7 +74,6 @@
         >
       </div>
     </div>
-
     <!-- mediz-navigation -->
   </div>
   <!-- mediz-header-container -->
