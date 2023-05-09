@@ -36,6 +36,7 @@ server.use(middleware);
 server.get("/", async (req: Request, res: Response) => {
   await res.render("index", {
     title: "Home",
+    children: [],
   });
 
   // // get host
