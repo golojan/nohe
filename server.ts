@@ -74,6 +74,14 @@ server.get("/pages/:slug", async (req: Request, res: Response) => {
     });
 });
 
+// Pages
+server.get("/forms/:slug", async (req: Request, res: Response) => {
+  const slug = req.params.slug;
+  res.render(`${slug}`, {
+    title: "Home",
+  });
+});
+
 //Listen to port
 const port = process.env.PORT || 3001;
 server.listen(port, async () => {
