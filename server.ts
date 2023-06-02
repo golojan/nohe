@@ -34,11 +34,17 @@ server.use(middleware);
 
 // set API routes
 server.get("/", async (req: Request, res: Response) => {
-  await res.render("index", {
-    title: "Home",
-    children: [],
-  });
-
+  const { Pages } = await dbCon();
+  await Pages.find()
+    .sort({ createdAt: -1 })
+    .limit(5)
+    .then(async (pages) => {
+      await res.render("index", {
+        title: "Home",
+        allPages: pages ? pages : [],
+        children: [],
+      });
+    });
   // // get host
   // if (process.env.NODE_ENV === "production") {
   //   await res.render("working", {
