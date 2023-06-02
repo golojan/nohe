@@ -5,7 +5,6 @@ import { dbCon } from "./models";
 import ejsHelper from "./ejs-helper";
 
 const middleware = async (req: Request, res: Response, next: NextFunction) => {
-  res.locals.domain = process.env.DOMAIN || "http://localhost:3001/";
   const { Settings, Pages } = await dbCon();
   await Settings.findOne({
     appname: "NOHE",
@@ -14,7 +13,8 @@ const middleware = async (req: Request, res: Response, next: NextFunction) => {
       res.locals.settings = settings;
       res.locals.greeting = Greeting();
       res.locals.ejsHelper = ejsHelper;
-      res.locals.domain = settings.siteDomain;
+      res.locals.domain = process.env.DOMAIN || "http://localhost:3001/";
+      // res.locals.domain = settings.siteDomain;
       // list all home pages for menu
       await Pages.find({
         disable: false,
