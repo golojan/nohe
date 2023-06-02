@@ -7,7 +7,6 @@ import ejsHelper from "./ejs-helper";
 const middleware = async (req: Request, res: Response, next: NextFunction) => {
   res.locals.domain = process.env.DOMAIN || "http://localhost:3001/";
   const { Settings, Pages } = await dbCon();
-
   await Settings.findOne({
     appname: "NOHE",
   })
@@ -26,6 +25,23 @@ const middleware = async (req: Request, res: Response, next: NextFunction) => {
         .sort({ createdAt: -1 })
         .then(async (allPages) => {
           res.locals.allPages = allPages;
+          /**
+           * @todo
+           * list all sub pages for menu
+           * @example
+           * const subPages = [];
+           */
+          let subPages = [];
+          for (let i = 0; i < allPages.length; i++) {
+            const page: any = allPages[i];
+            const children: any = await Pages.find({
+              parent: page._id,
+            });
+            //console.log(children);
+            subPages[page._id] = children;
+          }
+          res.locals.subPages = subPages;
+
           // list footer1 and footer2 pages
           await Pages.find({
             disable: false,
