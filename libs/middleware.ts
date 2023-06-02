@@ -76,7 +76,7 @@ const middleware = async (req: Request, res: Response, next: NextFunction) => {
       console.log(err);
       res.locals.settings = {
         appname: "National Orthopedic Hospital, Enugu.",
-        domain: process.env.DOMAIN || "http://localhost:3001/",
+        domain: process.env.DOMAIN,
         title: "National Orthopedic Hospital, Enugu.",
         description:
           "National Orthopaedic Hospital, Enugu is a federal government of Nigeria speciality hospital located in Enugu, Enugu State, Nigeria.",
