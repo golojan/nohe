@@ -36,6 +36,7 @@ server.use(middleware);
 server.get("/", async (req: Request, res: Response) => {
   res.render("index", {
     title: "Home",
+    hasChildren: 0,
   });
 });
 
@@ -46,27 +47,31 @@ server.get("/pages/:slug", async (req: Request, res: Response) => {
   await Pages.findOne({
     slug: req.params.slug,
   })
-    .then(async (page) => {
+    .then(async (page: any) => {
       if (page) {
         // count children
-        const children = await Pages.find({
-          parent: page._id,
+        const countChildren: number = await Pages.find({
+          parent: page.slug,
         }).countDocuments();
-
+        const children = await Pages.find({
+            parent: page.slug,
+          }).sort({ createdAt: -1 });
         await res.render("page", {
           title: page.title,
           description: page.description,
           pageInfo: page,
+          pageId: page._id, 
           pageContent: page.content,
-          children: children ? children : [],
-        });
+          hasChildren: Number(countChildren),
+          children: countChildren > 0 ? children : [],
+        });  
       } else {
         await res.render("404", {
           title: "Page not found",
         });
       }
     })
-    .catch(async (err) => {
+    .catch(async (err:any) => {
       console.log(err);
       await res.render("404", {
         title: "Page not found",
@@ -78,7 +83,7 @@ server.get("/pages/:slug", async (req: Request, res: Response) => {
 server.get("/forms/:slug", async (req: Request, res: Response) => {
   const slug = req.params.slug;
   res.render(`${slug}`, {
-    title: "Home",
+    title: "Home", 
   });
 });
 

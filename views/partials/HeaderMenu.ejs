@@ -12,27 +12,8 @@
             <a href="/">Home</a>
           </li>
           <% locals.allPages.forEach(async (page) => { %>
-          <li class="menu-item menu-item-has-children">
+          <li class="menu-item">
             <a href="/pages/<%= page.slug %>"> <%= page.title %> </a>
-            <% if (locals.subPages[page._id].length > 0) { %>
-            <ul class="sub-menu">
-              <% locals.subPages[page._id].forEach(async child => { %>
-              <li class="menu-item">
-                <a href="/pages/<%= child.slug %>"> <%= child.title %> </a>
-              </li>
-              <li class="menu-item">
-                <a href="/pages/<%= child.slug %>"> <%= child.title %> </a>
-              </li>
-              <li class="menu-item">
-                <a href="/pages/<%= child.slug %>"> <%= child.title %> </a>
-              </li>
-              <li class="menu-item">
-                <a href="/pages/<%= child.slug %>"> <%= child.title %> </a>
-              </li>
-              <% }) %>
-            </ul>
-
-            <% } %>
           </li>
           <% }) %>
         </ul>
@@ -85,6 +66,15 @@
       </div>
     </div>
     <!-- mediz-navigation -->
-  </div>
+    <% if (hasChildren > 0) { %>
+      <div style="min-height: 10px; background-color: brown; margin: 0 auto; padding: 5px 20px; display: flex; align-items: center;">
+        <strong style="margin-right: 10px;color:#FFFFFF;"><%= pageInfo.title %></strong><strong style="color: #949699;">&nbsp;|&nbsp;</strong>  
+        <% locals.children.forEach(async (child) => { %>
+            <a style="color: aliceblue; line-height: 1.2rem; font-size: 1rem; margin: 0 0.5rem;" href="/pages/<%= pageInfo.slug %>/<%= child.slug %>"> <%= child.title %> </a><strong style="color: #949699;">&nbsp;|&nbsp;</strong>
+          <% }) %>
+          <strong style="margin:0 10px;color:#FFFFFF;"><%= pageInfo.title %> >></strong>  
+      </div>
+    <% } %>
   <!-- mediz-header-container -->
 </div>
+
