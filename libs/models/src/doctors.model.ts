@@ -2,7 +2,7 @@ import mongoose, { Document } from 'mongoose'
 
 mongoose.Promise = global.Promise
 
-const accountsScheme = new mongoose.Schema(
+const doctorsScheme = new mongoose.Schema(
     {
         username: {
             type: String,
@@ -27,25 +27,24 @@ const accountsScheme = new mongoose.Schema(
             unique: true,
         },
         mobile: String,
-        street: String,
-        city: String,
-        lga: String,
-        state: String,
-        zip: String,
-        country: {
-            type: String,
-            default: 'Nigeria',
-        },
         enable_otp: String,
         otp: String,
         password: String,
-        enabled: {
-            type: Boolean,
-            default: false,
+        gender: {
+            type: String,
+        },
+        birthday: { type: String, default: '' },
+        department: {
+            type: String,
+            default: 'General',
+        },
+        unit: {
+            type: String,
+            default: 'Clinic',
         },
         role: {
             type: String,
-            default: 'USER',
+            default: 'Doctor',
         },
         smsNotification: {
             type: Boolean,
@@ -62,13 +61,27 @@ const accountsScheme = new mongoose.Schema(
         lastLogin: {
             type: Date,
         },
+        delete: {
+            type: Boolean,
+            default: false,
+        },
+        deleteAt: {
+            type: Date,
+        },
+        disabled: {
+            type: Boolean,
+            default: false,
+        },
+        disableAt: {
+            type: Date,
+        },
     },
     { timestamps: true }
 )
 
-if (mongoose.models.Accounts) {
-    delete mongoose.models.Accounts
+if (mongoose.models.Doctors) {
+    delete mongoose.models.Doctors
 }
 
-const Accounts = mongoose.models.Accounts || mongoose.model('Accounts', accountsScheme)
-export default Accounts
+const Doctors = mongoose.models.Doctors || mongoose.model('Doctors', doctorsScheme)
+export default Doctors

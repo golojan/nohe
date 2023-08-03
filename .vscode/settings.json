@@ -3,6 +3,16 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "auto-close-tag.disableOnLanguage": ["typescript", "typescriptreact"],
-  "auto-close-tag.enableAutoCloseTag": false
+  "[ejs]": {
+    "editor.formatOnSave": false
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "ejs"
+  ],
 }

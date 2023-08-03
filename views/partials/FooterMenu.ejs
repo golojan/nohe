@@ -5,45 +5,25 @@
         <div id="text-1" class="widget widget_text mediz-widget">
           <div class="textwidget">
             <p>
-              <img
-                class="alignnone size-full wp-image-6129"
-                src="upload/logo-1.png"
-                alt=""
-                width="170"
-              />
+              <img class="alignnone size-full wp-image-6129" src="upload/logo-1.png" alt="" width="170" />
               <br />
-              <span
-                class="gdlr-core-space-shortcode"
-                style="margin-top: -27px"
-              ></span>
+              <span class="gdlr-core-space-shortcode" style="margin-top: -27px"></span>
               <br />
               <%= locals.settings.siteAddress %>
-              <br />
-              <span
-                class="gdlr-core-space-shortcode"
-                style="margin-top: 0px"
-              ></span>
-              <br />
-              <i
-                class="icon-phone"
-                style="font-size: 19px; color: #17449e; margin-right: 10px"
-              ></i
-              ><span style="color: #17449e"
-                ><%= locals.settings.sitePhone %></span
-              >
-              <br />
-              <span
-                class="gdlr-core-space-shortcode"
-                style="margin-top: -15px"
-              ></span>
-              <br />
-              <i
-                class="icon-envelope"
-                style="font-size: 19px; color: #17449e; margin-right: 10px"
-              ></i
-              ><a href="#" style="color: #17449e"
-                ><span class=""><%= locals.settings.siteEmail %></span></a
-              >
+                <br />
+                <span class="gdlr-core-space-shortcode" style="margin-top: 0px"></span>
+                <br />
+                <i class="icon-phone" style="font-size: 19px; color: #17449e; margin-right: 10px"></i><span
+                  style="color: #17449e">
+                  <%= locals.settings.sitePhone %>
+                </span>
+                <br />
+                <span class="gdlr-core-space-shortcode" style="margin-top: -15px"></span>
+                <br />
+                <i class="icon-envelope" style="font-size: 19px; color: #17449e; margin-right: 10px"></i><a href="#"
+                  style="color: #17449e"><span class="">
+                    <%= locals.settings.siteEmail %>
+                  </span></a>
             </p>
           </div>
         </div>
@@ -54,13 +34,13 @@
           <span class="clear"></span>
           <div class="menu-about-us-container">
             <ul id="menu-about-us" class="menu">
-              <% locals.footer1Pages.forEach(footer1Page => { %>
+              <!-- <% locals.footer1Pages.forEach(footer1Page => { %>
               <li class="menu-item">
                 <a href="/pages/<%= footer1Page.slug %>"
                   ><%= footer1Page.title %></a
                 >
               </li>
-              <% }) %>
+              <% }) %> -->
             </ul>
           </div>
         </div>
@@ -71,60 +51,45 @@
           <span class="clear"></span>
           <div class="menu-our-services-container">
             <ul id="menu-our-services" class="menu">
-              <% locals.footer2Pages.forEach(footer2Page => { %>
-              <li class="menu-item">
-                <a href="/pages/<%= footer2Page.slug %>"
-                  ><%= footer2Page.title %></a
-                >
-              </li>
-              <% }) %>
+              <% locals.footer2Pages.forEach(footer2Page=> { %>
+                <li class="menu-item">
+                  <a href="/pages/<%= footer2Page.slug %>">
+                    <%= footer2Page.title %>
+                  </a>
+                </li>
+                <% }) %>
             </ul>
           </div>
         </div>
       </div>
       <div class="mediz-footer-column mediz-item-pdlr mediz-column-15">
-        <div
-          id="gdlr-core-opening-hour-widget-3"
-          class="widget widget_gdlr-core-opening-hour-widget mediz-widget"
-        >
+        <div id="gdlr-core-opening-hour-widget-3" class="widget widget_gdlr-core-opening-hour-widget mediz-widget">
           <h3 class="mediz-widget-title">Hospital Service Hours</h3>
           <span class="clear"></span>
           <div class="gdlr-core-opening-hour-widget" style="color: #17449e">
             <div class="gdlr-core-opening-hour-widget-list clearfix">
-              <span class="gdlr-core-head"
-                ><i class="icon-clock"></i>Weekdays</span
-              ><span class="gdlr-core-tail"
-                ><%= locals.settings.siteMondayToFridays %></span
-              >
+              <span class="gdlr-core-head"><i class="icon-clock"></i>Weekdays</span><span class="gdlr-core-tail">
+                <%= locals.settings.siteMondayToFridays %>
+              </span>
             </div>
             <div class="gdlr-core-opening-hour-widget-list clearfix">
-              <span class="gdlr-core-head"
-                ><i class="icon-clock"></i>Saturday</span
-              ><span class="gdlr-core-tail"
-                ><%= locals.settings.siteSaturdays %></span
-              >
+              <span class="gdlr-core-head"><i class="icon-clock"></i>Saturday</span><span class="gdlr-core-tail">
+                <%= locals.settings.siteSaturdays %>
+              </span>
             </div>
             <div class="gdlr-core-opening-hour-widget-list clearfix">
-              <span class="gdlr-core-head"
-                ><i class="icon-clock"></i>Sunday</span
-              ><span class="gdlr-core-tail"
-                ><%= locals.settings.siteSundays %></span
-              >
+              <span class="gdlr-core-head"><i class="icon-clock"></i>Sunday</span><span class="gdlr-core-tail">
+                <%= locals.settings.siteSundays %>
+              </span>
             </div>
           </div>
         </div>
         <div id="text-9" class="widget widget_text mediz-widget">
           <div class="textwidget">
             <p>
-              <span
-                class="gdlr-core-space-shortcode"
-                style="margin-top: -23px"
-              ></span
-              ><a
+              <span class="gdlr-core-space-shortcode" style="margin-top: -23px"></span><a
                 class="gdlr-core-button gdlr-core-button-shortcode gdlr-core-button-solid gdlr-core-button-no-border"
-                href="contact.html"
-                target="_blank"
-                style="
+                href="/" style="
                   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
                   -moz-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
                   -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
@@ -138,10 +103,7 @@
                   -moz-border-radius: 0px;
                   -webkit-border-radius: 0px;
                   background: #ffffff;
-                "
-                rel="noopener noreferrer"
-                ><span class="gdlr-core-content">Emergency : 24 hours</span></a
-              >
+                " rel="noopener noreferrer"><span class="gdlr-core-content">Emergency : 24 hours</span></a>
             </p>
           </div>
         </div>
@@ -151,46 +113,17 @@
   <div class="mediz-copyright-wrapper">
     <div class="mediz-copyright-container mediz-container clearfix">
       <div class="mediz-copyright-left mediz-item-pdlr">
-        <div
-          class="gdlr-core-social-network-item gdlr-core-item-pdb gdlr-core-none-align"
-          style="padding-bottom: 0px"
-        >
-          <a
-            href="<%= locals.settings.siteFacebook %>"
-            target="_blank"
-            class="gdlr-core-social-network-icon"
-            title="facebook"
-            style="font-size: 17px; color: #17449e"
-            ><i class="fa fa-facebook"></i></a
-          ><a
-            href="<%= locals.settings.siteLinkedin %>"
-            target="_blank"
-            class="gdlr-core-social-network-icon"
-            title="linkedin"
-            style="font-size: 17px; color: #17449e"
-            ><i class="fa fa-linkedin"></i></a
-          ><a
-            href="<%= locals.settings.siteInstagram %>"
-            target="_blank"
-            class="gdlr-core-social-network-icon"
-            title="skype"
-            style="font-size: 17px; color: #17449e"
-            ><i class="fa fa-instagram"></i></a
-          ><a
-            href="<%= locals.settings.siteTwitter %>"
-            target="_blank"
-            class="gdlr-core-social-network-icon"
-            title="twitter"
-            style="font-size: 17px; color: #17449e"
-            ><i class="fa fa-twitter"></i></a
-          ><a
-            href="<%= locals.settings.sitePinterest %>"
-            target="_blank"
-            class="gdlr-core-social-network-icon"
-            title="twitter"
-            style="font-size: 17px; color: #17449e"
-            ><i class="fa fa-pinterest"></i
-          ></a>
+        <div class="gdlr-core-social-network-item gdlr-core-item-pdb gdlr-core-none-align" style="padding-bottom: 0px">
+          <a href="<%= locals.settings.siteFacebook %>" target="_blank" class="gdlr-core-social-network-icon"
+            title="facebook" style="font-size: 17px; color: #17449e"><i class="fa fa-facebook"></i></a><a
+            href="<%= locals.settings.siteLinkedin %>" target="_blank" class="gdlr-core-social-network-icon"
+            title="linkedin" style="font-size: 17px; color: #17449e"><i class="fa fa-linkedin"></i></a><a
+            href="<%= locals.settings.siteInstagram %>" target="_blank" class="gdlr-core-social-network-icon"
+            title="skype" style="font-size: 17px; color: #17449e"><i class="fa fa-instagram"></i></a><a
+            href="<%= locals.settings.siteTwitter %>" target="_blank" class="gdlr-core-social-network-icon"
+            title="twitter" style="font-size: 17px; color: #17449e"><i class="fa fa-twitter"></i></a><a
+            href="<%= locals.settings.sitePinterest %>" target="_blank" class="gdlr-core-social-network-icon"
+            title="twitter" style="font-size: 17px; color: #17449e"><i class="fa fa-pinterest"></i></a>
         </div>
       </div>
       <div class="mediz-copyright-right mediz-item-pdlr">

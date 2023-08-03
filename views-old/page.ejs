@@ -1,4 +1,4 @@
-<%- include('partials/header') %>
+<%- include('./partials/header') %>
 
 <div class="mediz-page-wrapper" id="mediz-page-wrapper">
   <div class="mediz-blog-title-wrap mediz-style-custom mediz-feature-image">
@@ -81,18 +81,7 @@
       <div class="mediz-sidebar-center mediz-column-40 mediz-line-height">
         <div class="mediz-content-wrap mediz-item-pdlr clearfix">
           <div class="mediz-content-area">
-            <article
-              id="post-1268"
-              class="post-1268 post type-post status-publish format-standard hentry category-blog category-post-format"
-            >
-              <div class="mediz-single-article clearfix">
-                <div class="mediz-single-article-content">
-                  <%- pageContent %>
-                </div>
-              </div>
-              <!-- mediz-single-article -->
-            </article>
-            <!-- post-id -->
+            <%- pageInfo.content %>
           </div>
           <div class="clear"></div>
         </div>
@@ -148,4 +137,4 @@
     </div>
   </div>
 </div>
-<%- include('partials/footer') %>
+<%- include('./partials/footer') %>

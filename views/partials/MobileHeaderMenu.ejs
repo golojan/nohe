@@ -1,19 +1,10 @@
 <div class="mediz-mobile-header-wrap">
-  <div
-    class="mediz-mobile-header mediz-header-background mediz-style-slide mediz-sticky-mobile-navigation"
-    id="mediz-mobile-header"
-  >
+  <div class="mediz-mobile-header mediz-header-background mediz-style-slide mediz-sticky-mobile-navigation"
+    id="mediz-mobile-header">
     <div class="mediz-mobile-header-container mediz-container clearfix">
       <div class="mediz-logo mediz-item-pdlr">
         <div class="mediz-logo-inner">
-          <a class="" href="/"
-            ><img
-              src="upload/logo-1.png"
-              alt=""
-              width="290"
-              height="76"
-              title="logo"
-          /></a>
+          <a class="" href="/"><img src="upload/logo-1.png" alt="" width="290" height="76" title="logo" /></a>
         </div>
       </div>
       <div class="mediz-mobile-menu-right">
@@ -25,14 +16,8 @@
 
           <div class="mediz-top-search-row">
             <div class="mediz-top-search-cell">
-              <form role="search" method="get" class="search-form" action="/">
-                <input
-                  type="text"
-                  class="search-field mediz-title-font"
-                  placeholder="Search..."
-                  value=""
-                  name="s"
-                />
+              <form role="search" method="get" class="search-form" action="index.html">
+                <input type="text" class="search-field mediz-title-font" placeholder="Search..." value="" name="s" />
                 <div class="mediz-top-search-submit">
                   <i class="fa fa-search"></i>
                 </div>
@@ -45,41 +30,38 @@
           </div>
         </div>
 
-        <div
-          class="mediz-overlay-menu mediz-mobile-menu"
-          id="mediz-mobile-menu"
-        >
-          <a
-            class="mediz-overlay-menu-icon mediz-mobile-menu-button mediz-mobile-button-hamburger"
-            href="#"
-            ><span></span
-          ></a>
+        <div class="mediz-overlay-menu mediz-mobile-menu" id="mediz-mobile-menu">
+          <a class="mediz-overlay-menu-icon mediz-mobile-menu-button mediz-mobile-button-hamburger"
+            href="#"><span></span></a>
           <div class="mediz-overlay-menu-content mediz-navigation-font">
             <div class="mediz-overlay-menu-close"></div>
             <div class="mediz-overlay-menu-row">
               <div class="mediz-overlay-menu-cell">
                 <ul id="menu-main-navigation" class="menu">
-                  <li
-                    class="menu-item menu-item-home current-menu-item page_item page-item-7684 current_page_item"
-                  >
+                  <li class="menu-item menu-item-home current-menu-item page_item page-item-7684 current_page_item">
                     <a href="/" aria-current="page">Home</a>
                   </li>
-
-                  <% allPages.forEach(async page => { %>
-                  <li
-                    class="menu-item menu-item-has-children mediz-normal-menu"
-                  >
-                    <a href="/pages/<%= page.slug %>" class="sf-with-ul-pre">
-                      <%= page.title %>
-                    </a>
-                  </li>
-
-                  <% }) %>
-                  <li class="menu-item mediz-normal-menu">
-                    <a href="/forms/contact-us" class="sf-with-ul-pre">
-                      Contact Us
-                    </a>
-                  </li>
+                  <% locals.allPages.forEach(async page=> {
+                    const hasChildren =
+                    locals.subPages[page.slug].length;
+                    %>
+                    <li class="menu-item <% if (hasChildren) { %>menu-item-has-children<% } %> mediz-normal-menu">
+                      <a href="/pages/<%= page.slug %>">
+                        <%= page.title %>
+                      </a>
+                      <% if (hasChildren) { %>
+                        <ul class="sub-menu">
+                          <% locals.subPages[page.slug].forEach(subPage=> { %>
+                            <li class="menu-item">
+                              <a href="/pages/<%= subPage.slug %>">
+                                <%= subPage.title %>
+                              </a>
+                            </li>
+                            <% }) %>
+                        </ul>
+                        <% } %>
+                    </li>
+                    <% }) %>
                 </ul>
               </div>
             </div>

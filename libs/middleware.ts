@@ -5,7 +5,7 @@ import { dbCon } from "./models";
 import ejsHelper from "./ejs-helper";
 
 const middleware = async (req: Request, res: Response, next: NextFunction) => {
-  const { Settings, Pages } = await dbCon();
+  const { Settings, Pages, Departments } = await dbCon();
   await Settings.findOne({
     appname: "NOHE",
   })
@@ -14,7 +14,6 @@ const middleware = async (req: Request, res: Response, next: NextFunction) => {
       res.locals.greeting = Greeting();
       res.locals.ejsHelper = ejsHelper;
       res.locals.domain = process.env.DOMAIN || "http://localhost:3001/";
-      // res.locals.domain = settings.siteDomain;
       // list all home pages for menu
       await Pages.find({
         disable: false,
@@ -25,20 +24,13 @@ const middleware = async (req: Request, res: Response, next: NextFunction) => {
         .sort({ createdAt: -1 })
         .then(async (allPages) => {
           res.locals.allPages = allPages;
-          /**
-           * @todo
-           * list all sub pages for menu
-           * @example
-           * const subPages = [];
-           */
           let subPages = [];
           for (let i = 0; i < allPages.length; i++) {
             const page: any = allPages[i];
             const children: any = await Pages.find({
-              parent: page._id,
+              parent: page.slug,
             });
-            //console.log(children);
-            subPages[page._id] = children;
+            subPages[page.slug] = children;
           }
           res.locals.subPages = subPages;
 
@@ -59,6 +51,15 @@ const middleware = async (req: Request, res: Response, next: NextFunction) => {
               })
                 .then(async (footer2Pages) => {
                   res.locals.footer2Pages = footer2Pages;
+                  // list all departments
+                  await Departments.find({})
+                    .sort({ createdAt: -1 })
+                    .then(async (allDepartments) => {
+                      res.locals.allDepartments = allDepartments;
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                    });
                 })
                 .catch((err) => {
                   console.log(err);
@@ -76,7 +77,7 @@ const middleware = async (req: Request, res: Response, next: NextFunction) => {
       console.log(err);
       res.locals.settings = {
         appname: "National Orthopedic Hospital, Enugu.",
-        domain: process.env.DOMAIN,
+        domain: process.env.DOMAIN || "http://localhost:3001/",
         title: "National Orthopedic Hospital, Enugu.",
         description:
           "National Orthopaedic Hospital, Enugu is a federal government of Nigeria speciality hospital located in Enugu, Enugu State, Nigeria.",
