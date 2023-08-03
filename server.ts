@@ -11,9 +11,8 @@ import middleware from "./libs/middleware";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
 
-// set ejs tags
 import ejs from "ejs";
-ejs.delimiter = "?";
+ejs.delimiter = "%";
 
 server.use(cors());
 server.use(express.json({ limit: "25mb" }));
