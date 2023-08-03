@@ -1,7 +1,21 @@
 import { dbCon } from "./models";
+import path from "path";
+import fs from "fs";
 
 const sayHello = (name: string) => {
   return `Hello ${name}`;
+};
+
+const fileExists = (filePath: string) => {
+  const path = filePath;
+  try {
+    if (fs.existsSync(path)) {
+      return true;
+    }
+  } catch (err) {
+    console.error(err);
+  }
+  return false;
 };
 
 const sayHi = (name: string) => {
@@ -23,4 +37,4 @@ const hasSubPages: any = async (parent: string) => {
   return Number(cnt);
 };
 
-export default { sayHello, sayHi, getSubPages, hasSubPages };
+export default { sayHello, sayHi, getSubPages, hasSubPages, fileExists };

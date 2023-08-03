@@ -81,8 +81,11 @@
             <%- include('./partials/HeaderMenu.ejs') %>
               <div class="mediz-page-wrapper" id="mediz-page-wrapper">
                 <div class="gdlr-core-page-builder-body">
-                  <%- include(`./pages/${pageSlug}.ejs`) %>
-                    <%- include('./partials/FooterContactBar.ejs') %>
+                  <%= pageInfo.content %>
+                    <% if (locals.ejsHelper.fileExists(`./pages/${pageSlug}.ejs`)) { %>
+                      <%- include(`./pages/${pageSlug}.ejs`) %>
+                        <% } %>
+                          <%- include('./partials/FooterContactBar.ejs') %>
                 </div>
               </div>
               <%- include('./partials/FooterMenu.ejs') %>
