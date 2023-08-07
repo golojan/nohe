@@ -48,6 +48,11 @@ server.get("/", async (req: Request, res: Response) => {
   });
 });
 
+
+enum PageType {
+  HOME = "home",
+  ABOUT = "about",
+}
 // Pages
 server.get("/pages/:slug", async (req: Request, res: Response) => {
   // get page info

@@ -9,6 +9,45 @@
             class="menu-item <% if (pageSlug==='home') { %>current-menu-item current_page_item<% } %> menu-item-home page_item page-item-7684 mediz-normal-menu">
             <a href="/">Home</a>
           </li>
+          <li
+            class="menu-item <% if (pageSlug==='start-here') { %>current-menu-item current_page_item<% } %> menu-item-home page_item page-item-7684 mediz-mega-menu ">
+            <a href="#" class="sf-with-ul-pre">N.O.H Enugu <i class="fa fa-angle-down"></i></a>
+            <div class="sf-mega sf-mega-full"
+              style=" background-image: url('upload/mega-nav-bg.jpg');  background-position: top left;  background-repeat: no-repeat; ">
+              <ul class="sub-menu">
+                <li class="menu-item" data-size="15">
+                  <div class="mediz-mega-menu-section-content"><span class="gdlr-core-space-shortcode"
+                      style="margin-top: 140px ;"></span>
+                    <div style="display: block; margin-left: 15px;">
+                      <span class="gdlr-core-space-shortcode" style="margin-top: 10px ;"></span>
+                      <span style="font-size: 14px;">
+                        <strong>Dr. Emmanuel Iyidiobi (MD)</strong>, Consultant Orthopaedic & Trauma surgeon at N.O.H
+                        Enugu.
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li class="menu-item menu-item-has-children" data-size="15">
+                  <a href="#" class="sf-with-ul-pre">Departments</a>
+                  <ul class="sub-menu">
+                    <li class="menu-item"><a href="#"></a></li>
+                  </ul>
+                </li>
+                <li class="menu-item menu-item-has-children" data-size="15">
+                  <a href="#" class="sf-with-ul-pre">Doctors</a>
+                  <ul class="sub-menu">
+                    <li class="menu-item"><a href="#"></a></li>
+                  </ul>
+                </li>
+                <li class="menu-item menu-item-has-children" data-size="15">
+                  <a href="#" class="sf-with-ul-pre">Services</a>
+                  <ul class="sub-menu">
+                    <li class="menu-item"><a href="#"></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </li>
           <% locals.allPages.forEach(async page=> { const hasChildren =
             locals.subPages[page.slug].length; %>
             <li class="menu-item <% if (hasChildren) { %>menu-item-has-children<% } %> mediz-normal-menu">
