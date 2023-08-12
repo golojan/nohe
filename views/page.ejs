@@ -89,7 +89,7 @@
                         <div class="mediz-sidebar-center mediz-column-40 mediz-line-height">
                           <div class="gdlr-core-page-builder-body">
                             <div style="margin: 20px 20px;">
-                              <%= pageInfo.content %>
+                              <%- pageInfo.content %>
                                 <% if (locals.ejsHelper.fileExists(`./pages/${pageSlug}.ejs`)) { %>
                                   <%- include(`./pages/${pageSlug}.ejs`) %>
                                     <% } %>
