@@ -6,6 +6,32 @@ import ejsHelper from "./ejs-helper";
 
 const middleware = async (req: Request, res: Response, next: NextFunction) => {
   const { Settings, Pages, Departments } = await dbCon();
+
+  const servicePages = await Pages.find({
+    disable: false,
+    isDraft: false,
+    delete: false,
+    pageType: "service",
+  }).sort({ createdAt: -1 });
+
+  const departmentPages = await Pages.find({
+    disable: false,
+    isDraft: false,
+    delete: false,
+    pageType: "department",
+  }).sort({ createdAt: -1 });
+
+  const doctorPages = await Pages.find({
+    disable: false,
+    isDraft: false,
+    delete: false,
+    pageType: "doctor",
+  }).sort({ createdAt: -1 });
+
+  res.locals.servicePages = servicePages;
+  res.locals.departmentPages = departmentPages;
+  res.locals.doctorPages = doctorPages;
+
   await Settings.findOne({
     appname: "NOHE",
   })
@@ -20,6 +46,7 @@ const middleware = async (req: Request, res: Response, next: NextFunction) => {
         isDraft: false,
         delete: false,
         parent: "home",
+        pageType: "page",
       })
         .sort({ createdAt: -1 })
         .then(async (allPages) => {
