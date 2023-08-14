@@ -30,19 +30,37 @@
                 <li class="menu-item menu-item-has-children" data-size="15">
                   <a href="#" class="sf-with-ul-pre">Departments</a>
                   <ul class="sub-menu">
-                    <li class="menu-item"><a href="#"></a></li>
+                    <% locals.departmentPages.forEach(departmentPage=> { %>
+                      <li class="menu-item">
+                        <a href="/pages/<%= departmentPage.slug %>">
+                          <%= departmentPage.title %>
+                        </a>
+                      </li>
+                      <% }) %>
                   </ul>
                 </li>
                 <li class="menu-item menu-item-has-children" data-size="15">
                   <a href="#" class="sf-with-ul-pre">Doctors</a>
                   <ul class="sub-menu">
-                    <li class="menu-item"><a href="#"></a></li>
+                    <% locals.doctorPages.forEach(doctorPage=> { %>
+                      <li class="menu-item">
+                        <a href="/pages/<%= doctorPage.slug %>">
+                          <%= doctorPage.title %>
+                        </a>
+                      </li>
+                      <% }) %>
                   </ul>
                 </li>
                 <li class="menu-item menu-item-has-children" data-size="15">
                   <a href="#" class="sf-with-ul-pre">Services</a>
                   <ul class="sub-menu">
-                    <li class="menu-item"><a href="#"></a></li>
+                    <% locals.servicePages.forEach(servicePage=> { %>
+                      <li class="menu-item">
+                        <a href="/pages/<%= servicePage.slug %>">
+                          <%= servicePage.title %>
+                        </a>
+                      </li>
+                      <% }) %>
                   </ul>
                 </li>
               </ul>
