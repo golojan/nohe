@@ -1,6 +1,5 @@
 import express, { Application, Request, Response } from "express";
 const server: Application = express();
-import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 import path from "path";
@@ -9,19 +8,12 @@ import { dbCon } from "./libs/models";
 import middleware from "./libs/middleware";
 
 import cookieParser from "cookie-parser";
-import helmet from "helmet";
 
 import ejs from "ejs";
 ejs.delimiter = "%";
 
-server.use(cors());
 server.use(express.json({ limit: "25mb" }));
 server.use(express.urlencoded({ extended: false, limit: "50mb" }));
-server.use(
-  helmet({
-    contentSecurityPolicy: false,
-  })
-);
 
 // cookie parser
 server.use(cookieParser());
