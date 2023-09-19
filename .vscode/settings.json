@@ -4,7 +4,7 @@
     "source.fixAll.eslint": true
   },
   "[ejs]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "eslint.validate": [
     "javascript",
