@@ -59,18 +59,22 @@
                                         style="box-shadow: 0 0 35px rgba(0, 0, 0,0.1); -moz-box-shadow: 0 0 35px rgba(0, 0, 0,0.1); -webkit-box-shadow: 0 0 35px rgba(0, 0, 0,0.1); border-radius: 5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;">
                                         <div
                                             class="gdlr-core-personnel-list-image gdlr-core-media-image  gdlr-core-hover-element gdlr-core-zoom-on-hover">
-                                            <a href="#"><img src="upload/p-1.1-400x400.jpg" width="600" height="600"
-                                                    alt="" /></a>
+                                            <a href="#"><img src="<%= doctor.picture %>" width="600" height="600"
+                                                    alt="<%= doctor.firstname %>" /></a>
                                             <div class="gdlr-core-hover-opacity"></div>
                                         </div>
                                         <div class="gdlr-core-personnel-list-content-wrap ">
                                             <h3 class="gdlr-core-personnel-list-title"
                                                 style="font-size: 20px ;font-weight: 700 ;letter-spacing: 0px ;text-transform: none ;">
-                                                <a href="#">Joshua Clark <%= doctor.firstname %></a>
+                                                <a href="#">
+                                                    <%= doctor.firstname %>
+                                                        <%= doctor.lastname %>
+                                                </a>
                                             </h3>
                                             <div class="gdlr-core-personnel-list-position gdlr-core-info-font gdlr-core-skin-caption"
-                                                style="font-size: 15px ;font-weight: 400 ;font-style: normal ;letter-spacing: 0px ;">
+                                                style="font-size: 15px ;font-weight: 400 ;font-style: normal; letter-spacing: 0px ;">
                                                 <%= doctor.department %>
+                                                    <%= doctor.department %>
                                             </div>
                                         </div>
                                     </div>
