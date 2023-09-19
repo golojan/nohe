@@ -39,20 +39,23 @@ server.use(middleware);
 
 // set API routes
 server.get("/", async (req: Request, res: Response) => {
+  const { Doctors } = await dbCon();
+  const doctors = await Doctors.find({}).sort({ createdAt: -1 });
   res.render("index", {
     title: "N.O.H - Enugu State",
     pageSlug: "home",
     parentSlug: "home",
     childSlug: "home",
     hasChildren: 0,
+    doctors: doctors,
   });
 });
-
 
 enum PageType {
   HOME = "home",
   ABOUT = "about",
 }
+
 // Pages
 server.get("/pages/:slug", async (req: Request, res: Response) => {
   // get page info
