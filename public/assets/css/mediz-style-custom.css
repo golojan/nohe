@@ -125,6 +125,7 @@ ul.gdlr-core-custom-menu-widget.gdlr-core-menu-style-list2 li a{ font-weight: 50
 body.mediz-boxed .mediz-body-wrapper{ margin-top: 0px; margin-bottom: 0px; } 
 .mediz-body-wrapper.mediz-with-frame, body.mediz-full .mediz-fixed-footer{ margin: 0px; } 
 .mediz-body-background{ opacity: 1; } 
+
 .mediz-background-pattern .mediz-body-outer-wrapper{ background-image: url(../plugins/goodlayers-core/include/images/pattern/pattern-1.png); } 
 .mediz-item-pdlr, .gdlr-core-item-pdlr{ padding-left: 20px; padding-right: 20px; }.mediz-item-rvpdlr, .gdlr-core-item-rvpdlr{ margin-left: -20px; margin-right: -20px; }.gdlr-core-metro-rvpdlr{ margin-top: -20px; margin-right: -20px; margin-bottom: -20px; margin-left: -20px; }.mediz-item-mglr, .gdlr-core-item-mglr, .mediz-navigation .sf-menu > .mediz-mega-menu .sf-mega,.sf-menu.mediz-top-bar-menu > .mediz-mega-menu .sf-mega{ margin-left: 20px; margin-right: 20px; }.gdlr-core-pbf-wrapper-container-inner{ width: calc(100% - 20px - 20px); } 
 .mediz-container, .gdlr-core-container, body.mediz-boxed .mediz-body-wrapper, body.mediz-boxed .mediz-fixed-footer .mediz-footer-wrapper, body.mediz-boxed .mediz-fixed-footer .mediz-copyright-wrapper{ max-width: 1320px; } 
