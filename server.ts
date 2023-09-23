@@ -4,9 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import path from "path";
 import { dbCon } from "./libs/models";
-
 import middleware from "./libs/middleware";
-
 import cookieParser from "cookie-parser";
 
 import ejs from "ejs";
@@ -28,7 +26,6 @@ server.use(express.static(path.join(__dirname, "public", "assets")));
 
 // middleware
 server.use(middleware);
-
 // set API routes
 server.get("/", async (req: Request, res: Response) => {
   const { Doctors } = await dbCon();
