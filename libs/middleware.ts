@@ -12,21 +12,21 @@ const middleware = async (req: Request, res: Response, next: NextFunction) => {
     isDraft: false,
     delete: false,
     pageType: "service",
-  }).sort({ sort: -1 });
+  }).sort({ sort: 1 });
 
   const departmentPages = await Pages.find({
     disable: false,
     isDraft: false,
     delete: false,
     pageType: "department",
-  }).sort({ sort: -1 });
+  }).sort({ sort: 1 });
 
   const doctorPages = await Pages.find({
     disable: false,
     isDraft: false,
     delete: false,
     pageType: "doctor",
-  }).sort({ sort: -1 });
+  }).sort({ sort: 1 });
 
   res.locals.servicePages = servicePages;
   res.locals.departmentPages = departmentPages;
@@ -48,7 +48,7 @@ const middleware = async (req: Request, res: Response, next: NextFunction) => {
         parent: "home",
         pageType: "page",
       })
-        .sort({ sort: -1 })
+        .sort({ sort  : 1	  })
         .then(async (allPages) => {
           res.locals.allPages = allPages;
           let subPages = [];
