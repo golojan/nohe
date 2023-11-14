@@ -43,11 +43,5 @@ jobs:
       # - Build the Docker image
       - name: Build Project
         run: |-
-          docker build -t gcr.io/${{ env.PROJECT_ID }}/golojan-nohe:${{github.sha}} .
-
-      # - Push the Docker image to Google Container Registry
-      - name: Push Docker Image
-        run: |-
-          docker push gcr.io/${{ env.PROJECT_ID }}/golojan-nohe:${{github.sha}}
-
-      # - Deploy the Docker image to Google Kubernetes Engine
+          gcloud builds submit--region:us-central1 --tag=gcr.io/${{ env.PROJECT_ID }}/golojan-nohe:${{github.sha}} .
+            
