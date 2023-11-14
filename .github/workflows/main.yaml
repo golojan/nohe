@@ -40,10 +40,6 @@ jobs:
       #       gcloud --quiet auth configure-docker
 
       # - Build the Artifacts
-      - name: Build Artifacts
-        run: |-
-          gcloud artifacts repositories create golojan-nohe --repository-format=docker --location=us-central1 --description="Golojan Nohe Docker Repository"
-
       # - Build the Docker image
       - name: Build Project
         run: |-
@@ -52,4 +48,6 @@ jobs:
       # - Push the Docker image to Google Container Registry
       - name: Push Docker Image
         run: |-
-          docker push gcr.io/${{ env.PROJECT_ID }}/golojan-nohe::${{github.sha}}
+          docker push gcr.io/${{ env.PROJECT_ID }}/golojan-nohe:${{github.sha}}
+
+      # - Deploy the Docker image to Google Kubernetes Engine
