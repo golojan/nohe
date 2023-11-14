@@ -40,9 +40,13 @@ jobs:
         run: |
           gcloud config set artifacts/repository golojan-nohe
           gcloud config set artifacts/location us-central1
-          gloud config set project golojantechnologies
 
         # - Build and push Docker image
       - name: Build and push Docker image
         run: |
-          gcloud builds submit --tag us-central1-docker.pkg.dev/${{ env.PROJECT_ID }}/golojan-nohe/nohe:latest
+          gcloud builds submit --tag us-central1-docker.pkg.dev/${{ env.PROJECT_ID }}/golojan-nohe/nohe:${{ github.sha }}
+
+        # - Deploy to Cloud Run
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy golojan-nohe --image us-central1-docker.pkg.dev/${{ env.PROJECT_ID }}/golojan-nohe/nohe:${{ github.sha }} --platform managed --region us-central1 --allow-unauthenticated
