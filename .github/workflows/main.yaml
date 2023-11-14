@@ -1,0 +1,36 @@
+name: "Gcloud Setup, Build, and Deploy" # Name of the action
+
+on:
+  push:
+    branches:
+      - master # Push events will trigger this workflow only when the commit is on the master branch
+      - main # Push events will trigger this workflow only when the commit is on the main branch
+  pull_request:
+    branches:
+      - master # Merge events will trigger this workflow only when the commit is on the master branch
+      - main # Merge events will trigger this workflow only when the commit is on the main branch
+env:
+  PROJECT_ID: golojantechnologies # The project ID of your Google Cloud Platform project
+jobs:
+  build:
+    name: Build CI/CD for NHE Enugu # Name of the job
+    runs-on: ubuntu-latest # The type of machine to run the job on
+    steps:
+      - name: Checkout # Name of this step
+        uses: actions/checkout@v3 # The type of action to run
+
+        #  install gcloud CLI
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v0
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_CREDENTIALS }}
+          install_components: gke-gcloud-auth-plugin
+          export_default_credentials: true
+      # - Authenticate with Google Cloud SA key
+      - name: Authenticate with Google Cloud
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+
+        # - name: Configure gcloud CLI
