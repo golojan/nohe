@@ -38,6 +38,11 @@ jobs:
         # - Set Artifact Registry Settings
       - name: Set Artifact Registry location
         run: |
-          gcloud config set artifacts/repositories golojan-nohe
+          gcloud config set artifacts/repository golojan-nohe
           gcloud config set artifacts/location us-central1
           gloud config set project golojantechnologies
+
+        # - Build and push Docker image
+      - name: Build and push Docker image
+        run: |
+          gcloud builds submit --tag us-central1-docker.pkg.dev/${{ env.PROJECT_ID }}/golojan-nohe/nohe:latest
