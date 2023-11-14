@@ -29,8 +29,9 @@ jobs:
           export_default_credentials: true
 
         # - Authenticate with Google Cloud SA key
-      - name: Authenticate with Google Cloud
-        uses: google-github-actions/auth@v0
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v1.1.1
+
         with:
           credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 
@@ -43,4 +44,4 @@ jobs:
       # - Build the Docker image
       - name: Build Project
         run: |-
-          gcloud builds submit --region:us-central1 --tag=gcr.io/${{ env.PROJECT_ID }}/golojan-nohe:${{github.sha}} .
+          gcloud builds submit --region=us-central1 --tag=gcr.io/${{ env.PROJECT_ID }}/golojan-nohe:${{github.sha}} .
