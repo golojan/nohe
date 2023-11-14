@@ -43,5 +43,4 @@ jobs:
       # - Build the Docker image
       - name: Build Project
         run: |-
-          gcloud builds submit--region:us-central1 --tag=gcr.io/${{ env.PROJECT_ID }}/golojan-nohe:${{github.sha}} .
-            
+          gcloud builds submit --region:us-central1 --tag=gcr.io/${{ env.PROJECT_ID }}/golojan-nohe:${{github.sha}} .
