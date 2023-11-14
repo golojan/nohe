@@ -35,16 +35,9 @@ jobs:
         with:
           credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 
-        # - Install Dependencies
-      - name: Install dependencies
-        run: |
-          gcloud components install google-artifactregistry-auth
-
         # - Set Artifact Registry Settings
       - name: Set Artifact Registry location
         run: |
           gcloud config set artifacts/repositories golojan-nohe
           gcloud config set artifacts/location us-central1
           gloud config set project golojantechnologies
-          
-
