@@ -35,13 +35,16 @@ jobs:
         with:
           credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 
-      # - Configure Docker to use the gcloud command-line tool as a credential helper
-      #   - name: Configure Docker
-      #     run: |-
-      #       gcloud --quiet auth configure-docker
+        # - Install Dependencies
+      - name: Install dependencies
+        run: |
+          gcloud components install google-artifactregistry-auth
 
-      # - Build the Artifacts
-      # - Build the Docker image
-      - name: Build Project
-        run: |-
-          gcloud builds submit --region=us-central1 --tag=gcr.io/${{ env.PROJECT_ID }}/golojan-nohe:${{github.sha}} .
+        # - Set Artifact Registry Settings
+      - name: Set Artifact Registry location
+        run: |
+          gcloud config set artifacts/repositories golojan-nohe
+          gcloud config set artifacts/location us-central1
+          gloud config set project golojantechnologies
+          
+
