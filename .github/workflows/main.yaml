@@ -27,8 +27,24 @@ jobs:
           service_account_key: ${{ secrets.GCP_CREDENTIALS }}
           install_components: gke-gcloud-auth-plugin
           export_default_credentials: true
-      # - Authenticate with Google Cloud SA key
+
+        # - Authenticate with Google Cloud SA key
       - name: Authenticate with Google Cloud
         uses: google-github-actions/auth@v0
         with:
           credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+
+      # - Configure Docker to use the gcloud command-line tool as a credential helper
+      - name: Configure Docker
+        run: |-
+          gcloud --quiet auth configure-docker
+
+      # - Build the Docker image
+      - name: Build Project
+        run: |-
+          gcloud builds submit --region=us-central1 --tag=us.gcr.io/${{ env.PROJECT_ID }}/nohe
+
+        # - Deploy the Docker image to Google Cloud Run
+      - name: Deploy to Cloud Run
+        run: |-
+          gcloud run deploy nohe --image=us.gcr.io/${{ env.PROJECT_ID }}/nohe --platform=managed --region=us-central1 --allow-unauthenticated
