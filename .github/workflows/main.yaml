@@ -35,10 +35,9 @@ jobs:
           credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 
       # - Configure Docker to use the gcloud command-line tool as a credential helper
-      - name: Configure Docker
-        run: |-
-          gcloud --quiet auth configure-docker
-
+      #   - name: Configure Docker
+      #     run: |-
+      #       gcloud --quiet auth configure-docker
       # - Build the Docker image
       - name: Build Project
         run: |-
