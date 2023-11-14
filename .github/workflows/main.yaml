@@ -42,7 +42,7 @@ jobs:
       # - Build the Docker image
       - name: Build Project
         run: |-
-          gcloud builds submit --region=us-central1 --tag=us.gcr.io/${{ env.PROJECT_ID }}/nohe
+          gcloud builds submit --region=us-central1 --tag=us.gcr.io/${{ env.PROJECT_ID }}/nohe:${{ github.sha }}
 
         # - Deploy the Docker image to Google Cloud Run
       - name: Deploy to Cloud Run
