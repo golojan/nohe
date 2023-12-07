@@ -40,7 +40,6 @@ jobs:
         run: |
           gcloud config set artifacts/repository golojan-nohe
           gcloud config set artifacts/location us-central1
-          gcloud config set account ${{ secrets.GCP_CREDENTIALS }}
 
         # - Build and push Docker image
       - name: Build and push Docker image
@@ -51,3 +50,4 @@ jobs:
       - name: Deploy to Cloud Run
         run: |
           gcloud run deploy --image=tag=us-central1-docker.pkg.dev/${{ env.PROJECT_ID }}/golojan-nohe/nohe --region=us-central1 --allow-unauthenticated
+          artifactregistry.projectsettings.update and storage.buckets.update
