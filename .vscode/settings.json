@@ -15,4 +15,5 @@
     "vue",
     "ejs"
   ],
+  "editor.wordWrap": "on"
 }
