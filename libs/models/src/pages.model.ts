@@ -41,6 +41,11 @@ const pagesScheme = new mongoose.Schema(
             type: Boolean,
             default: false,
         },
+        target: {
+            type: String,
+            enum: ['nohe', 'cons'],
+            default: "nohe",
+        },
         delete: {
             type: Boolean,
             default: false,
